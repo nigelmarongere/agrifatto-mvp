@@ -42,10 +42,10 @@ export default function Home() {
               direction="row"
               spacing={2}>
               <Button variant="contained" size="small" color="success">
-                  <Link className={styles.btntext} href="/auth">Log in</Link>
+                  <Link className={styles.btntext} href="/authenticate">Log in</Link>
               </Button>
               <Button variant="contained" size="small" color="success">
-                <Link className={styles.btntext} href="/auth">Sign up</Link>
+                <Link className={styles.btntext} href="/authenticate">Sign up</Link>
               </Button>
             </Stack>
           </div>
