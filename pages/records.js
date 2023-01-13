@@ -1,26 +1,42 @@
+import styles from '../styles/Records.module.css'
 import { useState } from "react";
-
-// MUI
-import Stack from "@mui/material/Stack";
-import { Typography } from "@mui/material";
-import { IconButton} from "@mui/material";
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 export default function Records() {
 
+    // date
     const current = new Date();
-    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
+    let month = current.getMonth() + 1;
+    month < 10? month = `0${month}`: month;
+
+    let day = current.getDate();
+    day < 10? day = `0${day}`: day;
+
+    const today = `${current.getFullYear()}-${month}-${day}`;
+
+    const [date, setDate] = useState(today);
+
+    // workers
+
+    // bookkeeping
+    
 
     return (
-        <Stack
-            direction="row"
-            alignItems="baseline"
-            spacing={2}
-        >
-            <Typography variant="h4">{date}</Typography>
-            <IconButton color="success" aria-label="select date">
-                <CalendarMonthIcon />
-            </IconButton>
-        </Stack>
+        <main className={styles.main}>
+            <div>
+                <h3>Date</h3>
+                <input 
+                    type="date"
+                    value={date} 
+                    onChange={(event) => setDate(event.target.value)}
+                />
+            </div>
+            <div>
+                <h3>Workers</h3>
+            </div>
+            <div>
+                <h3>bookkeeping</h3>
+            </div>
+        </main>
     )
-}
+};
